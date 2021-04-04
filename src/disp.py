@@ -103,12 +103,18 @@ def write(value):
 	time.sleep(t)
 	g.cleanup()
 
-def disp(val=8888,time=10):
-	value = val
-	t = time/0.004
+def disp(val='8888',time='10'):
+	value = int(val)
+	t = int(time)/0.004
 	x = 0
-	while (x < t):
+	st = True
+
+	while st:
 		write(value)
 		x+=1
+		if time = "x":
+			st = True
+		else:
+			st = (x < t)
 	else:
 		pass
