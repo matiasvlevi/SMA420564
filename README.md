@@ -62,7 +62,7 @@ Modify `setup.sh` to set your own install path.
 
 <br/>
 
-Write text on lcd screen:
+Write value on display:
 
 ```
 display [4 digit value] [Time in seconds]
@@ -75,7 +75,7 @@ display [4 digit value] [Time in seconds]
 
 <br/>
 
-Write text on lcd screen:
+Write value on display:
 
 ```
 sudo python3 disp.py [4 digit value] [Time in seconds]
