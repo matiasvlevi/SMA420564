@@ -4,7 +4,7 @@ import time
 
 pin = []
 
-pinConfigFile = open("../config/pinConfig.txt")
+pinConfigFile = open("../home/pi/SMA420564/src/binding.py/src/pinConfig.txt")
 
 
 def parse(arr):
