@@ -64,7 +64,7 @@ Modify `setup.sh` to set your own install path.
 
 Write text on lcd screen:
 
-```sh
+```
 display [4 digit value] [Time in seconds]
 ```
 
@@ -77,8 +77,7 @@ display [4 digit value] [Time in seconds]
 
 Write text on lcd screen:
 
-```sh
-# SMA420564/src/
+```
 sudo python3 disp.py [4 digit value] [Time in seconds]
 ```
 
