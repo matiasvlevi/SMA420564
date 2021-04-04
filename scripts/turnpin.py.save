@@ -1,9 +1,0 @@
-import RPi.GPIO as GPIO
-
-
-
-pin = 17
-
-
-
-.output(pin, GPIO.HIGH)

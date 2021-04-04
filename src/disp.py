@@ -4,13 +4,14 @@ import time
 
 pin = []
 
-pinConfigFile = open("pinConfig.txt")
+pinConfigFile = open("../config/pinConfig.txt")
+
 
 def parse(arr):
 	conf = []
 	for i in range(len(arr)):
 		conf.append(arr[i].strip())
-	
+
 	return conf
 
 def getPin(str):
@@ -25,7 +26,6 @@ def getPin(str):
 
 def getGND(place):
 	p = 0
-
 	if place == 1:
 		p = 0
 	elif place == 2:
@@ -49,22 +49,16 @@ def setpins(conf):
 def pin_(num):
 	g.setup(pin[num],g.OUT)
 	g.output(pin[num],g.HIGH)
-	
 
 pinConfig = parse(pinConfigFile.readlines())
 pin = setpins(pinConfig)
-print(pin)
 
 def setup():
 	for i in range(len(pin)):
 		if pin[i] != 'Null':
-			#print(pin[i])
 			g.setup(pin[i],g.OUT)
-			#g.cleanup(pin[i])
 		else:
-			print("null")
-
-
+			pass
 
 def display(digit,place):
 	gnd = pin[getGND(place)]
@@ -73,33 +67,24 @@ def display(digit,place):
 	g.output(gnd,g.LOW)
 	if (digit == 0 or digit == 2 or digit == 3 or digit == 5 or digit == 6 or digit == 7 or digit == 8 or digit == 9):
 		pin_(1)
-	
-	#time.sleep(t)
+
 	if (digit == 0 or digit == 4 or digit == 5 or digit == 6 or digit == 8 or digit == 9):
 		pin_(2)
 
-	#time.sleep(t)
 	if (digit == 0 or digit == 1 or digit == 2 or digit == 3 or digit == 4 or digit == 7 or digit == 8 or digit == 9):
 		pin_(5)
 
-	#time.sleep(t)
 	if (digit == 0 or digit == 2 or digit == 6 or digit == 8):
 		pin_(6)
 
-	#time.sleep(t)
 	if (digit == 0 or digit == 2 or digit == 3 or digit == 5 or digit == 6 or digit == 8):
 		pin_(7)
 
-	#time.sleep(t)
 	if (digit == 0 or digit == 1 or digit == 3 or digit == 4 or digit == 5 or digit == 6 or digit == 7 or digit == 8 or digit == 9):
 		pin_(9)
 
-	#time.sleep(t)
 	if (digit == 2 or digit == 3 or digit == 4 or digit == 5 or digit == 6 or digit == 8 or digit == 9):
 		pin_(10)
-	
-	#time.sleep(t)
-	#g.cleanup()
 
 def write(value):
 	str_ = str(value)
@@ -114,30 +99,16 @@ def write(value):
 	display(int(arr[2]),3)
 	time.sleep(t)
 	g.cleanup()
-	display(int(arr[3]),4)	
+	display(int(arr[3]),4)
 	time.sleep(t)
 	g.cleanup()
 
-
-
-
-value = 8888
-
-if len(sys.argv) > 1:
-	value = sys.argv[1]
-else:
-	pass;
-
-t = 10
-if len(sys.argv) > 2:
-	t = float(sys.argv[2])/0.004
-else:
-	pass
-
-x = 0
-while (x < t):
-	write(value)
-	x+=1
-else:
-	pass
-
+def disp(val=8888,time=10):
+	value = val
+	t = time/0.004
+	x = 0
+	while (x < t):
+		write(value)
+		x+=1
+	else:
+		pass
