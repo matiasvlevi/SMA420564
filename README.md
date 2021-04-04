@@ -28,7 +28,7 @@ SMA420564        Raspberry PI
   10 --- to ----> GPIO9
   11 --- to ----> GPIO11
 ```
-Wants to change the pin configuration? Modify `config/pinConfig.txt` with this syntax `GPIOPIN:DisplayPin`.
+Want to change the pin configuration? Modify `config/pinConfig.txt` with this syntax `GPIOPIN:DisplayPin`.
 
 <br/><br/>
 
