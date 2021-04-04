@@ -35,6 +35,11 @@ Want to change the pin configuration? Modify `config/pinConfig.txt` with this sy
 ## Software Setup
 
 
+install
+```
+git clone https://github.com/matiasvlevi/SMA420564.git
+```
+
 <br/>
 
 Enable Raspberry PI's GPIO pins:
