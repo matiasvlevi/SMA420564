@@ -56,10 +56,11 @@ static uint8_t digits[STATE_COUNT] = {
 class SMA420564 {
 public: SMA420564();
 private:
-    uint8_t dp   = 0b0000; // Display point indecies
+    uint8_t dp_mask = 0b0000; // Display point mask
 
-    uint8_t tick = 0; // Use built in timers instead
-                      //
+    uint8_t tick    = 0; // Use built in timers instead
+                         //
+
     /**
      * Display Mode
      *
@@ -103,7 +104,7 @@ private:
     }
 
     /**
-     * Set value on a single displat digit
+     * Set value on a single display digit
      *
      *  @param value    - The value to display, 0 to STATE_COUNT
      *  @param position - The position of the digit display (0 to 3)
@@ -116,9 +117,11 @@ private:
     }
 
     /**
-     * Convert uint16_t numeric value ranging from 0000 to state^n - 1,
-     * into uint32_t pin values.
+     * Convert numeric value ranging from 0000 to state^n - 1,
+     * into uint32_t to express 4 raw port values. (1 byte each)
      *
+     *  @param value  - The value to convert to 4 symbols
+     *  @param states - The number of symbols in each digit 
      */ 
     static uint32_t from_numeric(
             uint16_t value,
@@ -134,8 +137,7 @@ private:
     static uint8_t get_symbol_from_uint16(
             uint16_t value,
             uint8_t index,
-            uint8_t state = 10);
-    
+            uint8_t state = 10); 
     
     /**
      * Print something to the display
@@ -148,19 +150,19 @@ public:
      */ 
     void point(uint8_t index)
     {
-        this->dp |= 0x01 << index;
+        this->dp_mask |= 0x01 << index;
     }
 
     /**
-     * Reset all points
+     * Set all points
      */ 
     void set_points(uint8_t mask)
     {
-        this->dp = mask;
+        this->dp_mask = mask;
     }
 
     /**
-     * Display something on the SMA420564
+     * Display a value on the SMA420564
      *
      *  @param value  - The value to print to the screen
      *  @param states - The number of states a single digit has

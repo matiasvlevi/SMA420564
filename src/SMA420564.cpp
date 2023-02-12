@@ -13,8 +13,8 @@ SMA420564::SMA420564()
 } 
  
 uint32_t SMA420564::from_numeric(
-    uint16_t value,
-    uint8_t states = STATE_COUNT)
+        uint16_t value,
+        uint8_t states = STATE_COUNT)
 {
     uint32_t ans = 0;
 
@@ -42,7 +42,7 @@ void SMA420564::set_all_digits(uint32_t value)
     );
 
     set_display_point(
-            (this->dp >> this->tick) & 1
+        (this->dp_mask >> this->tick) & 1
     );
 
     set_digit_position(this->tick);
