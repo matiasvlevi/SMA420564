@@ -1,5 +1,4 @@
 #include <Arduino.h>
-
 #include "SMA420564.h"
 
 SMA420564::SMA420564() 

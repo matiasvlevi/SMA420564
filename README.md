@@ -5,7 +5,37 @@ These ports can be changed in the header file.
 
 Library is located in `src/SMA420564.h`
 
+### Usage
+
+```cpp
+#include "SMA420564.h"
+
+SMA420564 Display;
+
+void setup(void) 
+{
+    /* ... code ... */
+}
+
+void loop(void)
+{
+    Display.write(1234);
+    
+    // Display.write(9999, DEC);
+    // Display.write(0xBEEF, HEX);
+    // Display.write(0xCAFE, HEX);
+
+    // Display.write(0xFFFFFFFF, DEC, RAW); // Writes raw data to ports
+}
+
+
+```
+
+
+
+
 ## Clone this example:
+
 ```
 git clone https://github.com/matiasvlevi/SMA420560.git ./playground
 ```
@@ -15,11 +45,13 @@ git clone https://github.com/matiasvlevi/SMA420560.git ./playground
 You can build with `make` which wraps the `arduino-cli` 
 
 Build:
+
 ```
 make
 ```
 
 Upload:
+
 ```
 make upload
 ```
