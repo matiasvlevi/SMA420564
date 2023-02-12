@@ -21,7 +21,8 @@ void loop(void)
 {
     Display.write(1234);
     
-    // Display.write(9999, DEC);
+    // Display.write(  9999, DEC);
+    // Display.write(0b1010, BIN);
     // Display.write(0xBEEF, HEX);
     // Display.write(0xCAFE, HEX);
 

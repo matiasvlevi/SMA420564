@@ -30,7 +30,7 @@ uint32_t SMA420564::from_numeric(
 uint8_t SMA420564::get_symbol_from_uint16(
         uint16_t value,
         uint8_t index,
-        uint8_t state = STATE_COUNT)
+        uint8_t state = 10)
 {
     return value / (uint16_t)ceil(pow(state, index)) % state;
 }
@@ -47,7 +47,7 @@ void SMA420564::set_all_digits(uint32_t value)
 
 void SMA420564::write(
         uint32_t value,
-        uint8_t states = STATE_COUNT,
+        uint8_t states = 10,
         Mode mode = 0) 
 {
     switch(mode) 

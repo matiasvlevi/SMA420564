@@ -144,7 +144,7 @@ public:
     static uint8_t get_symbol_from_uint16(
             uint16_t value,
             uint8_t index,
-            uint8_t state = STATE_COUNT);
+            uint8_t state = 10);
     
     
     /**
@@ -162,7 +162,7 @@ public:
      */ 
     void write(
             uint32_t value,
-            uint8_t states = STATE_COUNT,
+            uint8_t states = 10,
             Mode mode = 0);
 
 };

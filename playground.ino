@@ -1,5 +1,5 @@
 #include "./src/SMA420564.h"
-#define DELAY 400
+#define DELAY 25
 
 /**
 * Entry Point
