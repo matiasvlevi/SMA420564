@@ -1,5 +1,5 @@
 #include "./src/SMA420564.h"
-#define DELAY 25
+#define INCREMENT_DELAY 25
 
 /**
 * Entry Point
@@ -17,13 +17,14 @@ int main()
     for (;;) 
     { 
         Display.write(x, DEC);
+        Display.point(2);
 
-        if (millis() > DELAY+p_timer) 
+        if (millis() > p_timer + INCREMENT_DELAY) 
         {
             x++;
             x = x % 9999;
             p_timer = millis();
-        };
+        }
         
         if (serialEventRun) 
             serialEventRun();

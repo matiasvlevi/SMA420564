@@ -55,7 +55,9 @@ static uint8_t digits[STATE_COUNT] = {
 
 class SMA420564 {
 public: SMA420564();
-public:
+private:
+    uint8_t dp   = 0b0000; // Display point indecies
+
     uint8_t tick = 0; // Use built in timers instead
                       //
     /**
@@ -79,18 +81,6 @@ public:
     {
         PORT_DIGIT_SELECT =
             ~(0x01 << index);
-    }
-
-    /**
-    *   Select a value to display 
-    *
-    *   @param index - The value of the digit segments
-    *
-    */
-    void set_digit_value_number(uint8_t digit) 
-    {   
-        PORT_DIGIT_PINS =
-            digits[digit];
     }
 
     /**
@@ -153,6 +143,22 @@ public:
     void set_all_digits(uint32_t value);
 
 public:
+    /**
+     * Set a point at an index
+     */ 
+    void point(uint8_t index)
+    {
+        this->dp |= 0x01 << index;
+    }
+
+    /**
+     * Reset all points
+     */ 
+    void set_points(uint8_t mask)
+    {
+        this->dp = mask;
+    }
+
     /**
      * Display something on the SMA420564
      *

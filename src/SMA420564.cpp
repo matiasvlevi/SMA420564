@@ -40,6 +40,11 @@ void SMA420564::set_all_digits(uint32_t value)
     set_digit_value_raw(
         (value >> (8 * this->tick)) & 0xFF
     );
+
+    set_display_point(
+            (this->dp >> this->tick) & 1
+    );
+
     set_digit_position(this->tick);
 
     this->tick = (this->tick + 1) % DIGIT_COUNT;

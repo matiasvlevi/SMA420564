@@ -26,7 +26,16 @@ void loop(void)
     // Display.write(0xBEEF, HEX);
     // Display.write(0xCAFE, HEX);
 
-    // Display.write(0xFFFFFFFF, DEC, RAW); // Writes raw data to ports
+    // Enable display point, index ranges from 0 to 3
+    //  Display.point(2);
+
+    // Set display points in parrallel
+    //  Display.set_points(0b0101);
+
+
+    // Write raw data to ports:
+    // you can refer to the static array `digits` which holds the raw bytes for the 16 symbols
+    //  Display.write(0xFFFFFFFF, DEC, RAW); 
 }
 
 
